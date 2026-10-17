@@ -3,13 +3,29 @@ import subprocess
 from unittest.mock import patch
 import pytest
 from backend.app import create_app
-from backend.config import Config
+from backend.config import TestingConfig
+from backend.database import db
+from backend.models import User
 
 @pytest.fixture
 def client():
-    app = create_app(Config)
+    app = create_app(TestingConfig)
+    with app.app_context():
+        db.create_all()
+        user = User(email="security_tester@example.com", display_name="Security Tester")
+        user.set_password("SecurePass123!")
+        db.session.add(user)
+        db.session.commit()
+        user_id = user.id
+
     with app.test_client() as client:
+        with client.session_transaction() as sess:
+            sess["user_id"] = user_id
         yield client
+
+    with app.app_context():
+        db.session.remove()
+        db.drop_all()
 
 def test_mandatory_security_no_code_execution(client):
     """

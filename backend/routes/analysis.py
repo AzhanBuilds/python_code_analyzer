@@ -1,9 +1,11 @@
 from flask import Blueprint, request, jsonify, current_app
 from ..analyzer.analyzer_service import AnalyzerService
+from .auth import login_required
 
 analysis_bp = Blueprint("analysis", __name__)
 
 @analysis_bp.route("/analyze", methods=["POST"], strict_slashes=False)
+@login_required
 def analyze_endpoint():
     """
     POST /api/analyze
