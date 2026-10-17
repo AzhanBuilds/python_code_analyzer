@@ -44,7 +44,11 @@ export const useAnalyzer = () => {
       if (err.isCancelled) return;
       setStatus('error');
       setErrorMessage(err.message || 'An error occurred during analysis.');
-      setBackendReady(false);
+      if (err.isNetworkError) {
+        setBackendReady(false);
+      } else {
+        setBackendReady(true);
+      }
     }
   }, [code]);
 

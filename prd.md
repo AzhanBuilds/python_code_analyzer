@@ -1,4 +1,4 @@
-﻿# PRODUCT REQUIREMENTS DOCUMENT (PRD)
+# PRODUCT REQUIREMENTS DOCUMENT (PRD)
 # Python Code Analyzer
 
 **Project Name:** Python Code Analyzer  
@@ -180,7 +180,7 @@ If the existing project already includes user accounts or analysis history, pres
 
 # 5. PRODUCT SCOPE
 
-## 5.1 Version 1 â€” Required Features
+## 5.1 Version 1 — Required Features
 
 Implement all of the following:
 
@@ -202,7 +202,7 @@ Implement all of the following:
 16. Unit tests and API tests.
 17. README with installation and startup instructions.
 
-## 5.2 Future Features â€” Not Required for Initial Release
+## 5.2 Future Features — Not Required for Initial Release
 
 Keep the architecture extensible for:
 
@@ -346,10 +346,10 @@ Show a visual progress indicator or score ring if it fits the reference design.
 
 Suggested visual interpretation:
 
-- 90â€“100: Excellent.
-- 75â€“89: Good.
-- 60â€“74: Needs improvement.
-- 0â€“59: Poor.
+- 90–100: Excellent.
+- 75–89: Good.
+- 60–74: Needs improvement.
+- 0–59: Poor.
 
 These ranges are product presentation conventions, not universal definitions of code quality.
 
@@ -441,7 +441,7 @@ Example:
 
 **1**
 
-**LINE 5 Â· Low**
+**LINE 5 · Low**
 
 `print()` is used in the code.
 
@@ -482,7 +482,7 @@ Display a section titled:
 
 Example:
 
-**LINE 5 Â· print-usage**
+**LINE 5 · print-usage**
 
 Use a logger instead of `print()` for application output.
 
@@ -880,10 +880,10 @@ Do not silently change the scoring model between analyses.
 
 Use these initial display ranges:
 
-- 90â€“100: Excellent.
-- 75â€“89: Good.
-- 60â€“74: Needs improvement.
-- 0â€“59: Poor.
+- 90–100: Excellent.
+- 75–89: Good.
+- 60–74: Needs improvement.
+- 0–59: Poor.
 
 These labels are user-interface guidance, not a claim that a score universally measures program correctness.
 
@@ -1086,39 +1086,39 @@ Use reusable components such as:
 
 ```text
 src/
-â”œâ”€â”€ app/
-â”‚   â”œâ”€â”€ App.jsx
-â”‚   â””â”€â”€ router.jsx
-â”œâ”€â”€ components/
-â”‚   â”œâ”€â”€ layout/
-â”‚   â”‚   â”œâ”€â”€ AppHeader.jsx
-â”‚   â”‚   â””â”€â”€ AnalyzerLayout.jsx
-â”‚   â”œâ”€â”€ editor/
-â”‚   â”‚   â”œâ”€â”€ CodeEditor.jsx
-â”‚   â”‚   â””â”€â”€ EditorToolbar.jsx
-â”‚   â”œâ”€â”€ analysis/
-â”‚   â”‚   â”œâ”€â”€ AnalysisResults.jsx
-â”‚   â”‚   â”œâ”€â”€ QualityScore.jsx
-â”‚   â”‚   â”œâ”€â”€ MetricsGrid.jsx
-â”‚   â”‚   â”œâ”€â”€ MetricCard.jsx
-â”‚   â”‚   â”œâ”€â”€ WarningsPanel.jsx
-â”‚   â”‚   â”œâ”€â”€ WarningItem.jsx
-â”‚   â”‚   â”œâ”€â”€ SuggestionsPanel.jsx
-â”‚   â”‚   â””â”€â”€ TodoFixmePanel.jsx
-â”‚   â””â”€â”€ common/
-â”‚       â”œâ”€â”€ LoadingState.jsx
-â”‚       â”œâ”€â”€ ErrorState.jsx
-â”‚       â””â”€â”€ EmptyState.jsx
-â”œâ”€â”€ services/
-â”‚   â””â”€â”€ analyzerApi.js
-â”œâ”€â”€ hooks/
-â”‚   â””â”€â”€ useAnalyzer.js
-â”œâ”€â”€ utils/
-â”‚   â””â”€â”€ formatAnalysis.js
-â”œâ”€â”€ styles/
-â”‚   â””â”€â”€ index.css
-â”œâ”€â”€ main.jsx
-â””â”€â”€ index.css
+├── app/
+│   ├── App.jsx
+│   └── router.jsx
+├── components/
+│   ├── layout/
+│   │   ├── AppHeader.jsx
+│   │   └── AnalyzerLayout.jsx
+│   ├── editor/
+│   │   ├── CodeEditor.jsx
+│   │   └── EditorToolbar.jsx
+│   ├── analysis/
+│   │   ├── AnalysisResults.jsx
+│   │   ├── QualityScore.jsx
+│   │   ├── MetricsGrid.jsx
+│   │   ├── MetricCard.jsx
+│   │   ├── WarningsPanel.jsx
+│   │   ├── WarningItem.jsx
+│   │   ├── SuggestionsPanel.jsx
+│   │   └── TodoFixmePanel.jsx
+│   └── common/
+│       ├── LoadingState.jsx
+│       ├── ErrorState.jsx
+│       └── EmptyState.jsx
+├── services/
+│   └── analyzerApi.js
+├── hooks/
+│   └── useAnalyzer.js
+├── utils/
+│   └── formatAnalysis.js
+├── styles/
+│   └── index.css
+├── main.jsx
+└── index.css
 ```
 
 Adjust the structure to fit an existing project rather than blindly duplicating folders.
@@ -1175,30 +1175,30 @@ Use a modular backend structure.
 
 ```text
 backend/
-â”œâ”€â”€ app.py
-â”œâ”€â”€ config.py
-â”œâ”€â”€ requirements.txt
-â”œâ”€â”€ analyzer/
-â”‚   â”œâ”€â”€ __init__.py
-â”‚   â”œâ”€â”€ analyzer_service.py
-â”‚   â”œâ”€â”€ syntax_analyzer.py
-â”‚   â”œâ”€â”€ metrics_analyzer.py
-â”‚   â”œâ”€â”€ rules_engine.py
-â”‚   â”œâ”€â”€ todo_scanner.py
-â”‚   â”œâ”€â”€ quality_scorer.py
-â”‚   â””â”€â”€ models.py
-â”œâ”€â”€ routes/
-â”‚   â”œâ”€â”€ __init__.py
-â”‚   â”œâ”€â”€ analysis.py
-â”‚   â””â”€â”€ health.py
-â”œâ”€â”€ tests/
-â”‚   â”œâ”€â”€ test_api.py
-â”‚   â”œâ”€â”€ test_metrics.py
-â”‚   â”œâ”€â”€ test_rules.py
-â”‚   â”œâ”€â”€ test_todo_scanner.py
-â”‚   â”œâ”€â”€ test_quality_scorer.py
-â”‚   â””â”€â”€ test_security.py
-â””â”€â”€ README.md
+├── app.py
+├── config.py
+├── requirements.txt
+├── analyzer/
+│   ├── __init__.py
+│   ├── analyzer_service.py
+│   ├── syntax_analyzer.py
+│   ├── metrics_analyzer.py
+│   ├── rules_engine.py
+│   ├── todo_scanner.py
+│   ├── quality_scorer.py
+│   └── models.py
+├── routes/
+│   ├── __init__.py
+│   ├── analysis.py
+│   └── health.py
+├── tests/
+│   ├── test_api.py
+│   ├── test_metrics.py
+│   ├── test_rules.py
+│   ├── test_todo_scanner.py
+│   ├── test_quality_scorer.py
+│   └── test_security.py
+└── README.md
 ```
 
 The project may use a single root directory with separate `frontend` and `backend` directories. Follow the existing repository structure if it is already established.

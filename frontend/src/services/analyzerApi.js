@@ -10,11 +10,12 @@ const getApiBaseUrl = () => {
 
 const API_BASE_URL = getApiBaseUrl();
 
-const apiClient = axios.create({
+export const apiClient = axios.create({
   baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
+  withCredentials: true,
   timeout: 10000,
 });
 
@@ -40,10 +41,14 @@ export const analyzeCode = async (code) => {
     if (error.response) {
       // Backend returned HTTP error
       const message = error.response.data?.error || `Server error (${error.response.status})`;
-      throw new Error(message);
+      const err = new Error(message);
+      err.response = error.response;
+      throw err;
     } else if (error.request) {
       // Network failure
-      throw new Error('Unable to connect to the analyzer. Check that the Flask backend is running.');
+      const err = new Error('Unable to connect to the analyzer. Check that the Flask backend is running.');
+      err.isNetworkError = true;
+      throw err;
     } else {
       throw new Error(error.message || 'An unexpected error occurred.');
     }
